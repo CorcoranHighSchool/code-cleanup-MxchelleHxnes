@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,20 +10,16 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     // Forward Input
     private float forwardInput;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private const string vertical = " Vertical "
+    private const string horizontal = " Horizontal "
 
     // Update is called once per frame
     void Update()
     {
         //Get the forward Input
-        forwardInput = Input.GetAxis("Vertical");
+        forwardInput = Input.GetAxis(Vertical);
         //Get the horizontal Input
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis(Horizontalj);
 
         //Move the vehicle forward
         transform.Translate(Vector3.forward * forwardInput * speed * Time.deltaTime);

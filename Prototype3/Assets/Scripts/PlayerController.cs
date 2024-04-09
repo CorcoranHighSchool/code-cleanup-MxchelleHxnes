@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,26 +7,26 @@ public class PlayerController : MonoBehaviour
     //Jump force
     private float jumpForce = 15.0f;
     //Gravity Modifier
-    public float gravityModifier;
+    [SerializeField] private float gravityModifier;
     //Are we on the ground?
     private bool isOnGround = true;
     //Is the Game Over
-    public bool gameOver = false;
+    public bool gameOver {get; private set;};
 
     //Player Animator
     private Animator playerAnim;
 
     //ParticleSystem explosion
-    public ParticleSystem explositionParticle;
+    [SerializeField] private ParticleSystem explositionParticle;
     //ParticleSystem dirt
-    public ParticleSystem dirtParticle;
+    [SerializeField] private ParticleSystem dirtParticle;
 
     //Jump sound
-    public AudioClip jumpSound;
+    [SerializeField] private AudioClip jumpSound;
     //Crash sound
-    public AudioClip crashSound;
+    [SerializeField] private AudioClip crashSound;
     //Player Audio
-    public AudioSource playerAudio;
+    [SerializeField] private AudioSource playerAudio;
 
     // Start is called before the first frame update
     void Start()

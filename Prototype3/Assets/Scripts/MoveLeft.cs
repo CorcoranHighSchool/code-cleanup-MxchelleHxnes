@@ -8,8 +8,8 @@ public class MoveLeft : MonoBehaviour
     private PlayerController playerControllerScript;
     // Left bounds
     private float leftBound = -15.0f;
-    private const string player = " Player "
-    private const string obstacle = " Obstacle "
+    private const string player = "Player"
+    private const string obstacle = "Obstacle"
     // Start is called before the first frame update
     void Start()
     {

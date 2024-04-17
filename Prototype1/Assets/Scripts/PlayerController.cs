@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     // Forward Input
     private float forwardInput;
-    private const string vertical = " Vertical "
-    private const string horizontal = " Horizontal "
+    private const string vertical = "Vertical"
+    private const string horizontal = "Horizontal"
 
     // Update is called once per frame
     void Update()

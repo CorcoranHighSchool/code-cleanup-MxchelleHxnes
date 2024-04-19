@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerialieField] private bool hasPowerup;
     private float powerUpStrength = 15.0f;
     [SerialieField] private GameObject powerupIndicator;
+    private const string Powerup = "Powerup"
+    private const string Enemy = "Enemy"
+    private const string Collided with = "Collided with"
+    private const string with powerup set to = "with powerup set to"
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Powerup"))                    //TODO: String
+        if (other.CompareTag(Powerup))                    
         {
             powerupIndicator.SetActive(true);   
             hasPowerup = true;
@@ -44,13 +48,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && hasPowerup) //TODO: String
+        if (collision.gameObject.CompareTag(Enemy) && hasPowerup) 
         {
             Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 awayfromPlayer = (collision.gameObject.transform.position - transform.position);
 
-            Debug.Log("Collided with " + collision.gameObject.name + //TODO: String
-                "with powerup set to " + hasPowerup);               //TODO: String
+            Debug.Log(Collided with  + collision.gameObject.name + 
+                with powerup set to  + hasPowerup);               
             enemyRigidbody.AddForce(awayfromPlayer * powerUpStrength, ForceMode.Impulse);
         }
     }

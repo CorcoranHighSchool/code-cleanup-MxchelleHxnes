@@ -12,6 +12,13 @@ public class PlayerController : MonoBehaviour
     private bool isOnGround = true;
     //Is the Game Over
     public bool gameOver {get; private set;};
+    private const string Jump_trig = "Jump_trig"
+    private const sting Ground = "Ground"
+    private const string Obstacle = "Obstacle"
+    private const string Game over = "Game Over"
+    private const string Death_b = "Death_b"
+    private const string DeathType_int = "DeathType_int"
+
 
     //Player Animator
     private Animator playerAnim;
@@ -49,7 +56,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
             //trigger the jump animation
-            playerAnim.SetTrigger("Jump_trig");         //TODO: String
+            playerAnim.SetTrigger(Jump_trig);         
             isOnGround = false;
             playerAudio.PlayOneShot(jumpSound, 1.0f);
             dirtParticle.Stop();
@@ -59,21 +66,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground")) //TODO: String
+        if (collision.gameObject.CompareTag(Ground)) 
         {
             dirtParticle.Play();
             isOnGround = true;
         }
-        else if (collision.gameObject.CompareTag("Obstacle")) //TODO: String
+        else if (collision.gameObject.CompareTag(Obstacle)) 
         {
             explositionParticle.Play();
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
 
             gameOver = true;
-            Debug.Log("Game Over!");                    //TODO: String
-            playerAnim.SetBool("Death_b", true);        //TODO: String
-            playerAnim.SetInteger("DeathType_int", 1);  //TODO: String
+            Debug.Log(Game Over!);                    
+            playerAnim.SetBool(Death_b, true);        
+            playerAnim.SetInteger(DeathType_int, 1);  
         }
     }
 }

@@ -47,9 +47,9 @@ public class PlayerController : MonoBehaviour
         //If we press space, jump
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
         {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
             //trigger the jump animation
-            playerAnim.SetTrigger("Jump_trig");
+            playerAnim.SetTrigger("Jump_trig");         //TODO: String
             isOnGround = false;
             playerAudio.PlayOneShot(jumpSound, 1.0f);
             dirtParticle.Stop();
@@ -59,21 +59,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground")) //TODO: String
         {
             dirtParticle.Play();
             isOnGround = true;
         }
-        else if (collision.gameObject.CompareTag("Obstacle"))
+        else if (collision.gameObject.CompareTag("Obstacle")) //TODO: String
         {
             explositionParticle.Play();
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
 
             gameOver = true;
-            Debug.Log("Game Over!");
-            playerAnim.SetBool("Death_b", true);
-            playerAnim.SetInteger("DeathType_int", 1);
+            Debug.Log("Game Over!");                    //TODO: String
+            playerAnim.SetBool("Death_b", true);        //TODO: String
+            playerAnim.SetInteger("DeathType_int", 1);  //TODO: String
         }
     }
 }

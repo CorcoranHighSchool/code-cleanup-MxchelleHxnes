@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Get the horizontal input
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal"); //TODO: String
         //Move the player
         transform.Translate(Vector3.right * (horizontalInput * Time.deltaTime * speed));
 

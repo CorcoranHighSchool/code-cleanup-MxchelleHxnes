@@ -22,10 +22,10 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis(Horizontalj);
 
         //Move the vehicle forward
-        transform.Translate(Vector3.forward * forwardInput * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * forwardInput * (speed * Time.deltaTime)); 
 
         //Turn the vehicle
-        transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
+        transform.Rotate(Vector3.up, (turnSpeed * horizontalInput * Time.deltaTime)); 
 
     }
 }
